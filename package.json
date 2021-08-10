@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Instagram clone for grandmas",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "devStart": "nodemon server.js"
   },
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/bagrad007/gran-gram#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.13.6"
   },
