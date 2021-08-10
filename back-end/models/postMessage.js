@@ -2,7 +2,8 @@ import mongoose from 'mongoose'
 
 const postSchema = mongoose.Schema({
     selectedFile: String,
-    comment: String,
+    text: String,
+    comments: [String],
     tags: [String],
     creator: String,
     cookieCount: {
@@ -13,7 +14,6 @@ const postSchema = mongoose.Schema({
         type: Date,
         default: new Date()
     }
-
 })
 
 const PostMessage = mongoose.model('PostMessage', postSchema)
