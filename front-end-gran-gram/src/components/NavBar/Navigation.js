@@ -7,6 +7,7 @@ const Navigation = () => {
     const history = useHistory()
     const handleNewPost = (e) => {
         e.preventDefault()
+        history.push('/post')
     }
 
     const handleHome = (e) => {
