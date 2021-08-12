@@ -7,9 +7,7 @@ import Navbar from './components/NavBar/Navigation.js'
 const App = () => {
 
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch])
+  useEffect(() => { dispatch(getPosts()) }, [dispatch])
 
   return (
     <div>
