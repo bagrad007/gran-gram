@@ -28,17 +28,15 @@ const Posts = () => {
         )
     } else {
         return (
-            <Container>
-                <Row>
-                    <Col lg={6} className="shadow-lg bg-white offset-lg-3">
-                        {posts.map((post) => (
-                            <div className="cardbox-item">
-                                <Post post={post} />
-                            </div>
-                        ))}
-                    </Col>
-                </Row>
-            </Container>
+            <div className="">
+                {
+                    posts.map((post) => (
+                        <div className="cardbox-item">
+                            <Post post={post} />
+                        </div>
+                    ))
+                }
+            </div>
         )
     }
 

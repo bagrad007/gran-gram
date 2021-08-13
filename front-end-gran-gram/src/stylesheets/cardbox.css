@@ -1,3 +1,15 @@
+.post-container {
+    margin-bottom: 20px;
+}
+
+.dropdown-menu {
+    position: absolute; 
+    transform: translate3d(-136px, 28px, 0px); 
+    top: 0px; 
+    left: 0px; 
+    will-change: transform;
+}
+
 .cardbox .cardbox-heading {
     padding: 16px;
     margin: 0;
