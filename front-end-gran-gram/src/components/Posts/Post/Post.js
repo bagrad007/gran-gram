@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'react-bootstrap/Image'
+import Button from 'react-bootstrap/Button'
 
 const Post = (props) => {
     console.log(props)
@@ -23,10 +24,17 @@ const Post = (props) => {
             <div>
                 {props.post.text}
             </div>
-            <ul>
-                <li><a><i class="fas fa-cookie-bite"></i></a></li>
-                <li><a><span>{props.post.cookieCount}</span></a></li>
-            </ul>
+            <div>
+                <Button variant="light"><i class="fas fa-cookie-bite"></i></Button>
+                <span>  {props.post.cookieCount}</span>
+            </div>
+
+
+            <div>
+                {props.post.tags.map((tag) => `#${tag} `)}
+            </div>
+
+
         </div>
 
     )

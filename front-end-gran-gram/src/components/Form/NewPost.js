@@ -36,7 +36,7 @@ const NewPost = () => {
                     <Form.Control as="textarea" rows={2} placeholder="Text for Post" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value })}>
+                <Form.Group className="mb-3" value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(",") })}>
                     <Form.Label>Tags</Form.Label>
                     <Form.Control type="text" placeholder="Tags" />
                 </Form.Group>
