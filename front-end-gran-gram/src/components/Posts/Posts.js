@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import "../../stylesheets/cardbox.css"
 import Post from './Post/Post.js'
+import image from '../../images/elderly-lady-on-computer.jpeg'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -18,7 +19,7 @@ const Posts = () => {
                 <Row>
                     <Col className="offset-lg-4">
                         <Card style={{ width: '22rem' }}>
-                            <Card.Img src="https://c8.alamy.com/comp/A5YY44/elderly-lady-isolating-covid-19-computer-internet-senior-old-age-lady-A5YY44.jpg" />
+                            <Card.Img src={`${image}`} />
                         </Card>
                         <Spinner animation="border" className='offset-sm-3' />
                     </Col>
