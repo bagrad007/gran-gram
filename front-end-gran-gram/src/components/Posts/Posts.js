@@ -15,13 +15,14 @@ const Posts = () => {
     console.log(posts)
     if (!posts.length) {
         return (
+
             <Container>
                 <Row>
                     <Col className="offset-lg-4">
                         <Card style={{ width: '22rem' }}>
                             <Card.Img src={`${image}`} />
                         </Card>
-                        <Spinner animation="border" className='offset-sm-3' />
+                        <Spinner animation="border" className='offset-md-3' />
                     </Col>
                 </Row>
             </Container>

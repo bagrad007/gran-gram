@@ -1,5 +1,6 @@
 import React from 'react'
 import "../../../stylesheets/cardbox.css"
+import Smile from "../../../images/yellow-smile.JPG"
 
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
@@ -12,6 +13,7 @@ import Col from 'react-bootstrap/Col'
 const Post = (props) => {
     console.log(props)
     return (
+
         <Container className="post-container">
             <Row>
                 <Col lg={6} className="shadow-lg bg-white offset-lg-3">
@@ -26,7 +28,7 @@ const Post = (props) => {
                         </div>
                         <div className="media m-0">
                             <div className="d-flex mr-3">
-                                <a href=""><img className="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg" alt="User" /></a>
+                                <a href=""><img className="img-fluid rounded-circle" src={`${Smile}`} alt="User" /></a>
                             </div>
                             <div className="media-body">
                                 <p className="m-0">{props.post.creator} name</p>
