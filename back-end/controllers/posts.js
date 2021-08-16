@@ -33,3 +33,10 @@ export const likePost = async (req, res) => {
 
     res.json(updatedPost)
 }
+
+export const deletePost = async (req, res) => {
+    const { id } = req.params;
+
+    await PostMessage.findByIdAndRemove(id)
+    res.json({ message: "Post was deleted" })
+}

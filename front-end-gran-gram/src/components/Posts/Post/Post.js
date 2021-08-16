@@ -26,9 +26,7 @@ const Post = (props) => {
                             <button className="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
                                 <em className="fa fa-ellipsis-h"></em>
                             </button>
-                            <div className="dropdown-menu dropdown-scale dropdown-menu-right" role="menu">
-                                <a className="dropdown-item">Delete Post</a>
-                            </div>
+
                         </div>
                         <div className="media m-0">
                             <div className="d-flex mr-3">
@@ -41,13 +39,13 @@ const Post = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div class="cardbox-image">
-                        <Image src={`${props.post.selectedFile}`} />
+                    <div className="cardbox-image">
+                        <Image src={`${props.post.selectedFile}`} fluid />
                     </div>
                     <div>
                         {props.post.text}
                     </div>
-                    <Button variant="light" onClick={() => dispatch(likePost(props.post._id))}><i class="fas fa-cookie-bite"></i></Button>
+                    <Button variant="light" onClick={() => dispatch(likePost(props.post._id))}><i className="fas fa-cookie-bite"></i></Button>
                     <span>  {props.post.cookieCount}</span>
                     <div>
                     </div>
