@@ -15,7 +15,7 @@ const Post = (props) => {
 
         <Container className="post-container">
             <Row>
-                <Col lg={6} className="shadow-lg bg-white offset-lg-3">
+                <Col lg={6} className="shadow-lg bg-white offset-lg-3 cardbox-column">
                     <div className="cardbox-heading">
                         <div className="dropdown float-right">
                             <button className="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">

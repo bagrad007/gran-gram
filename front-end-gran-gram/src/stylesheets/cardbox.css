@@ -2,9 +2,14 @@
     margin-bottom: 20px;
 }
 
+/* .cardbox-column {
+  max-width: 500px;
+  max-height: 800px;
+} */
+
 img {
   width: 100%;
-  height: fit-content;
+  height: 550px;
   object-fit: cover;
 }
 
