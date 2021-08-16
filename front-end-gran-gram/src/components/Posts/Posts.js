@@ -3,15 +3,31 @@ import { useSelector } from 'react-redux'
 import "../../stylesheets/cardbox.css"
 import Post from './Post/Post.js'
 import image from '../../images/elderly-lady-on-computer.jpeg'
+// import { getPosts } from '../../actions/posts.js'
+// import { useDispatch } from 'react-redux'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Spinner from 'react-bootstrap/Spinner'
 import Card from 'react-bootstrap/Card'
+// import { fetchPosts } from '../../api'
 
 const Posts = () => {
+
+    // const [allPosts, setPosts] = useState([])
+
+
+    // useEffect(() => {
+    //     getAllPosts = async () => {
+    //         let data = await fetchPosts()
+    //         setPosts(data)
+    //     }
+    //     getAllPosts()
+    // })
+
     const posts = useSelector((state) => state.posts)
+
     console.log(posts)
     if (!posts.length) {
         return (

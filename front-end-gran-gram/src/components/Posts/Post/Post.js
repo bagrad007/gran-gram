@@ -4,14 +4,13 @@ import Smile from "../../../images/yellow-smile.JPG"
 
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
-import Dropdown from 'react-bootstrap/Dropdown'
+// import Dropdown from 'react-bootstrap/Dropdown'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
 const Post = (props) => {
-    console.log(props)
     return (
 
         <Container className="post-container">
@@ -38,7 +37,7 @@ const Post = (props) => {
                         </div>
                     </div>
                     <div class="cardbox-image">
-                        <Image src={`${props.post.selectedFile}`} fluid />
+                        <Image src={`${props.post.selectedFile}`} />
                     </div>
                     <div>
                         {props.post.text}
