@@ -1,4 +1,7 @@
 import React from 'react'
+import { likePost } from '../../../actions/posts'
+import { useDispatch } from 'react-redux'
+
 import "../../../stylesheets/cardbox.css"
 import Smile from "../../../images/yellow-smile.JPG"
 
@@ -11,6 +14,8 @@ import Col from 'react-bootstrap/Col'
 
 
 const Post = (props) => {
+    const dispatch = useDispatch()
+
     return (
 
         <Container className="post-container">
@@ -42,7 +47,7 @@ const Post = (props) => {
                     <div>
                         {props.post.text}
                     </div>
-                    <Button variant="light"><i class="fas fa-cookie-bite"></i></Button>
+                    <Button variant="light" onClick={() => dispatch(likePost(props.post._id))}><i class="fas fa-cookie-bite"></i></Button>
                     <span>  {props.post.cookieCount}</span>
                     <div>
                     </div>

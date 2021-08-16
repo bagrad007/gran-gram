@@ -19,7 +19,7 @@ const Navigation = () => {
 
     return (
         <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" expand="lg" sticky="top">
                 <Navbar.Brand>GranGram</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -27,7 +27,7 @@ const Navigation = () => {
                         <Nav.Link href="/home" onClick={handleHome}>Home</Nav.Link>
                         <Nav.Link href='/post/new' onClick={handleNewPost}>New Post</Nav.Link>
                     </Nav>
-                    <Nav className="me-right">
+                    <Nav className="ml-auto">
                         <Nav.Link href="login" >Login</Nav.Link>
                         <Nav.Link href="signup" >Sign Up</Nav.Link>
                     </Nav>
