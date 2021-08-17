@@ -7,18 +7,17 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux';
 import reducers from './reducers/index.js'
 
-import { BrowserRouter as Router } from 'react-router-dom'
 import { composeWithDevTools } from "redux-devtools-extension"
 import thunk from 'redux-thunk'
 
 const store = createStore(reducers, compose(applyMiddleware(thunk), composeWithDevTools()))
 
 ReactDOM.render(
-  <Router>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </Router>,
+
+  <Provider store={store}>
+    <App />
+  </Provider>,
+
   document.querySelector('#root')
 );
 

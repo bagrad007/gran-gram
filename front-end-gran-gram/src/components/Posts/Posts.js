@@ -4,13 +4,14 @@ import "../../stylesheets/cardbox.css"
 import Post from './Post/Post.js'
 import image from '../../images/elderly-lady-on-computer.jpeg'
 
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Spinner from 'react-bootstrap/Spinner'
 import Card from 'react-bootstrap/Card'
 
-const Posts = () => {
+const Posts = (props) => {
     const posts = useSelector((state) => state.posts)
     console.log(posts)
     if (!posts.length) {

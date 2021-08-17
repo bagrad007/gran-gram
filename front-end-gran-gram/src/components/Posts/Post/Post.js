@@ -42,7 +42,7 @@ const Post = (props) => {
                     <div className="cardbox-image">
                         <Image src={`${props.post.selectedFile}`} fluid />
                     </div>
-                    <div>
+                    <div >
                         {props.post.text}
                     </div>
                     <Button variant="light" onClick={() => dispatch(likePost(props.post._id))}><i className="fas fa-cookie-bite"></i></Button>

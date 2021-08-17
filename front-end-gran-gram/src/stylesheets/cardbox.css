@@ -8,6 +8,10 @@
   object-fit: cover;
 }
 
+.form-container {
+  margin-top: 10%;
+  background-color: white;
+}
 
 
 .dropdown-menu {
