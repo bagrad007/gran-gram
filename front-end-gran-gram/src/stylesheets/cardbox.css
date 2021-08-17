@@ -8,11 +8,7 @@
   object-fit: cover;
 }
 
-/* img {
-  width: 100%;
-  height: 550px;
-  object-fit: cover;
-} */
+
 
 .dropdown-menu {
     position: absolute; 
@@ -65,12 +61,13 @@
   }
 
 
-/* .cardbox-item{
-    margin-bottom: 10%;
-} */
-.img-fluid{
-    display: block;
-    max-width: 100% !important;
-    height: auto;
+.cardbox-item {
+  width: auto;
 }
+
+.delete-button {
+  float: right;
+  padding-right: 20px;
+}
+
 

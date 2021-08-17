@@ -1,5 +1,5 @@
 import React from 'react'
-import { likePost } from '../../../actions/posts'
+import { likePost, deletePost } from '../../../actions/posts'
 import { useDispatch } from 'react-redux'
 
 import "../../../stylesheets/cardbox.css"
@@ -47,7 +47,8 @@ const Post = (props) => {
                     </div>
                     <Button variant="light" onClick={() => dispatch(likePost(props.post._id))}><i className="fas fa-cookie-bite"></i></Button>
                     <span>  {props.post.cookieCount}</span>
-                    <div>
+                    <div className="delete-button">
+                        <Button variant="danger" size="sm" onClick={() => dispatch(deletePost(props.post._id))}>Delete</Button>
                     </div>
 
 
