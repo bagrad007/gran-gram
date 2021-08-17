@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-// import Posts from '../Posts/Posts'
 import { useDispatch } from 'react-redux'
 import { createPost } from '../../actions/posts.js'
-// import { Redirect } from 'react-router'
+
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/esm/Container'
 import FileBase from 'react-file-base64'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/esm/Col'
@@ -28,9 +28,9 @@ const NewPost = () => {
     }
 
     return (
-        <div className="form-container container bg-white">
+        <Container className="form-container" fluid>
 
-            <Row className="justify-content-lg-center">
+            <Row className="center-element">
                 <Form onSubmit={handleSubmit} autoComplete="off">
                     <Col>
                         <div className={"mb-3"}>
@@ -57,7 +57,7 @@ const NewPost = () => {
                     </Col>
 
 
-                    <Col className="offset-sm-4">
+                    <Col className="center-element">
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
@@ -66,7 +66,7 @@ const NewPost = () => {
 
                 </Form>
             </Row>
-        </div>
+        </Container>
     )
 }
 
