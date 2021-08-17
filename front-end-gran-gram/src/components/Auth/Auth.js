@@ -5,11 +5,14 @@ import '../../stylesheets/cardbox.css'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import Col from 'react-bootstrap/esm/Col'
+
 
 const Auth = () => {
 
-    const isSignup = true
+    const [isSignup, setIsSignup] = useState(false)
+
+    const switchMode = () => { setIsSignup((prevIsSignup) => !prevIsSignup) }
+
 
     const handleChange = () => {
 
@@ -33,11 +36,15 @@ const Auth = () => {
                     {isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password" placeholder="Confirm Password" />}
 
                     <div className="center-element">
-
-                        <Button type="submit">
+                        <Button type="submit" >
                             {isSignup ? "Sign Up" : "LogIn"}
                         </Button>
+                    </div>
 
+                    <div className="d-grid gap-2 center-element">
+                        <Button variant="secondary" className="switch-button-for-signup-login" onClick={switchMode}>
+                            {isSignup ? "Already have an account? Login" : "Don't have an account? Sign up"}
+                        </Button>
                     </div>
 
                 </Form>
