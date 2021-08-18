@@ -26,7 +26,8 @@ const Auth = () => {
         console.log(res)
     }
 
-    const googleFailure = () => {
+    const googleFailure = (error) => {
+        console.log(error)
         console.log("Google login unsuccessful")
     }
 
