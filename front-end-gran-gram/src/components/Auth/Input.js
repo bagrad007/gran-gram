@@ -6,8 +6,8 @@ import Form from 'react-bootstrap/Form'
 
 const Input = ({ name, handleChange, label, autoFocus, type, placeholder }) => {
     return (
-        <Row className="justify-content-lg-center">
-            <Col sm={6}>
+        <Row className="center-element">
+            <Col sm={6} md={6}>
 
                 <Form.Group className="mb-3">
                     <Form.Label>{placeholder}</Form.Label>
