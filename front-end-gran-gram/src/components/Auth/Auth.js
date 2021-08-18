@@ -3,7 +3,7 @@ import Input from './Input'
 import '../../stylesheets/cardbox.css'
 import { GoogleLogin } from 'react-google-login'
 import GoogleButton from 'react-google-button'
-
+import { useDispatch } from 'react-redux'
 
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -11,6 +11,8 @@ import Form from 'react-bootstrap/Form'
 
 
 const Auth = () => {
+
+    const dispatch = useDispatch()
 
     const [isSignup, setIsSignup] = useState(false)
     const switchMode = () => {
@@ -22,8 +24,15 @@ const Auth = () => {
 
     }
 
-    const googleSuccess = (res) => {
-        console.log(res)
+    const googleSuccess = async (res) => {
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+
+        try {
+            dispatch({ type: "AUTH", data: { result, token } })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const googleFailure = (error) => {
