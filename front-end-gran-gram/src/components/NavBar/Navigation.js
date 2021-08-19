@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import BrandLogo from '../../images/GranGram.png'
@@ -8,6 +8,15 @@ import Nav from 'react-bootstrap/Nav'
 
 
 const Navigation = () => {
+
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+
+    useEffect(() => {
+        // const token = user.token
+
+
+        setUser(JSON.parse(localStorage.getItem('profile')))
+    }, [])
 
     const history = useHistory()
     const handleNewPost = (e) => {

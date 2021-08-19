@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Input from './Input'
+import { useHistory } from 'react-router'
 import '../../stylesheets/cardbox.css'
 import { GoogleLogin } from 'react-google-login'
 import GoogleButton from 'react-google-button'
@@ -12,6 +13,7 @@ import Form from 'react-bootstrap/Form'
 
 const Auth = () => {
 
+    const history = useHistory()
     const dispatch = useDispatch()
 
     const [isSignup, setIsSignup] = useState(false)
@@ -25,11 +27,13 @@ const Auth = () => {
     }
 
     const googleSuccess = async (res) => {
-        const result = res?.profileObj;
-        const token = res?.tokenId;
+        const result = res.profileObj;
+        const token = res.tokenId;
 
         try {
             dispatch({ type: "AUTH", data: { result, token } })
+
+            history.push('/')
         } catch (error) {
             console.log(error)
         }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createPost } from '../../actions/posts.js'
+import { useHistory } from 'react-router'
 
 
 import Form from 'react-bootstrap/Form'
@@ -12,6 +13,8 @@ import Col from 'react-bootstrap/esm/Col'
 
 const NewPost = () => {
 
+    const history = useHistory()
+
     const [postData, setPostData] = useState({
         selectedFile: "",
         text: "",
@@ -22,9 +25,9 @@ const NewPost = () => {
     const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
-
         e.preventDefault()
         dispatch(createPost(postData))
+        history.push('/')
     }
 
     return (
