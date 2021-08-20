@@ -1,29 +1,42 @@
 import React, { useState } from 'react'
-import Input from './Input'
 import { useHistory } from 'react-router'
-import '../../stylesheets/cardbox.css'
 import { GoogleLogin } from 'react-google-login'
 import GoogleButton from 'react-google-button'
 import { useDispatch } from 'react-redux'
 
+import Input from './Input'
+import { login, signup } from '../../actions/auth.js'
+
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import '../../stylesheets/cardbox.css'
 
+const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' }
 
 const Auth = () => {
 
     const history = useHistory()
     const dispatch = useDispatch()
+    const [formData, setFormData] = useState(initialState)
 
     const [isSignup, setIsSignup] = useState(false)
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-    const handleChange = () => {
+        if (isSignup) {
+            dispatch(signup(formData, history))
+        } else {
+            dispatch(login(formData, history))
+        }
+    }
 
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
     const googleSuccess = async (res) => {
@@ -32,8 +45,8 @@ const Auth = () => {
 
         try {
             dispatch({ type: "AUTH", data: { result, token } })
-
             history.push('/')
+
         } catch (error) {
             console.log(error)
         }
@@ -47,7 +60,7 @@ const Auth = () => {
     return (
         <div>
             <Container>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <div className="center-element google-login-button">
                         <GoogleLogin
                             clientId="811704621961-u81qgk35tl1sljagc8apa3g1jt6hvm45.apps.googleusercontent.com"
