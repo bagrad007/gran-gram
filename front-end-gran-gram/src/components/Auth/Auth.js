@@ -21,6 +21,7 @@ const Auth = () => {
     const [formData, setFormData] = useState(initialState)
 
     const [isSignup, setIsSignup] = useState(false)
+
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup)
     }
