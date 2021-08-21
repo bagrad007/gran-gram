@@ -78,8 +78,8 @@ const Auth = () => {
                     {
                         isSignup && (
                             <div>
-                                <Input name="firstname" label="First Name" handleChange={handleChange} placeholder="First Name" autoFocus xs={6} />
-                                <Input name="lastname" label="Last Name" handleChange={handleChange} placeholder="Last Name" xs={6} />
+                                <Input name="firstName" label="First Name" handleChange={handleChange} placeholder="First Name" autoFocus xs={6} />
+                                <Input name="lastName" label="Last Name" handleChange={handleChange} placeholder="Last Name" xs={6} />
                             </div>
                         )
                     }
