@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import "../../stylesheets/cardbox.css"
 import Post from './Post/Post.js'
 import image from '../../images/elderly-lady-on-computer.jpeg'
-
+import Search from '../../Search/Search.js'
 
 
 import Container from 'react-bootstrap/Container'
@@ -32,7 +32,8 @@ const Posts = (props) => {
     } else {
         return (
             <div>
-
+                <br />
+                <Search className='center-element' />
                 {
                     posts.map((post) => (
                         <div className="cardbox-item" key={post._id}>
