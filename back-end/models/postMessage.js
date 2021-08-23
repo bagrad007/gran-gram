@@ -4,6 +4,7 @@ const postSchema = mongoose.Schema({
     selectedFile: String,
     text: String,
     comments: [String],
+    name: String,
     tags: [String],
     creator: String,
     cookieCount: {

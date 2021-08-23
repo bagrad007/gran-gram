@@ -10,10 +10,13 @@ import Container from 'react-bootstrap/esm/Container'
 import FileBase from 'react-file-base64'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/esm/Col'
+import { Alert } from 'react-bootstrap'
 
 const NewPost = () => {
 
     const history = useHistory()
+    const dispatch = useDispatch()
+    const user = JSON.parse(localStorage.getItem('profile'))
 
     const [postData, setPostData] = useState({
         selectedFile: "",
@@ -22,19 +25,25 @@ const NewPost = () => {
         creator: ""
     })
 
-    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(createPost(postData))
+        dispatch(createPost({ ...postData, name: user.result.name }))
         history.push('/')
     }
 
+    if (!user.result.name) {
+        return (
+            <Container className="center.element">
+                <Alert variant="warning">Please sign up if you want to make a post!</Alert>
+            </Container>
+        )
+    }
     return (
         <Container className="form-container" fluid>
 
             <Row className="center-element">
-                <Form onSubmit={handleSubmit} autoComplete="off">
+                <Form onSubmit={handleSubmit} autoComplete="off" className="createPostForm">
                     <Col>
                         <div className={"mb-3"}>
                             <FileBase

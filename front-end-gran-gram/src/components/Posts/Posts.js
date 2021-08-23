@@ -5,6 +5,7 @@ import Post from './Post/Post.js'
 import image from '../../images/elderly-lady-on-computer.jpeg'
 
 
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -13,24 +14,25 @@ import Card from 'react-bootstrap/Card'
 
 const Posts = (props) => {
     const posts = useSelector((state) => state.posts)
-    console.log(posts)
+
     if (!posts.length) {
         return (
 
-            <Container>
+            <Container className='center-element'>
                 <Row>
-                    <Col className="offset-lg-4">
+                    <Col>
                         <Card style={{ width: '22rem' }}>
                             <Card.Img src={`${image}`} />
                         </Card>
-                        <Spinner animation="border" className='offset-md-3' />
+                        <Spinner animation="border" className='' />
                     </Col>
                 </Row>
             </Container>
         )
     } else {
         return (
-            <div className="">
+            <div>
+
                 {
                     posts.map((post) => (
                         <div className="cardbox-item" key={post._id}>
@@ -38,6 +40,7 @@ const Posts = (props) => {
                         </div>
                     ))
                 }
+
             </div>
         )
     }

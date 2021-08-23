@@ -20,7 +20,6 @@ export const signup = (formData, history) => async (dispatch) => {
 
         const { data } = await api.signup(formData)
         dispatch({ type: AUTH, data })
-        debugger
         history.push('/')
     } catch (error) {
         console.log(error)
