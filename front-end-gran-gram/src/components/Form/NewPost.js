@@ -4,15 +4,12 @@ import { createPost } from '../../actions/posts.js'
 import { useHistory } from 'react-router'
 
 
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/esm/Container'
+import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap'
+
 import FileBase from 'react-file-base64'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/esm/Col'
-import { Alert } from 'react-bootstrap'
 
 const NewPost = () => {
+
 
     const history = useHistory()
     const dispatch = useDispatch()
@@ -32,7 +29,7 @@ const NewPost = () => {
         history.push('/')
     }
 
-    if (!user.result.name) {
+    if (user === null && !user.result.name) {
         return (
             <Container className="center.element">
                 <Alert variant="warning">Please sign up if you want to make a post!</Alert>

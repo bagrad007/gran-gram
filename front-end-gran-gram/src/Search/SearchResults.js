@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchResults = () => {
+const SearchResults = (query) => {
     return (
         <div>
 

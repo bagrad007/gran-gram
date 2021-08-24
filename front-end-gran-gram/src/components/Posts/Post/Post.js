@@ -49,7 +49,7 @@ const Post = (props) => {
                     <Button variant="light" disabled={user === null || !user.result} onClick={() => dispatch(likePost(props.post._id))}><i className="fas fa-cookie-bite"></i></Button>
                     <span>  {props.post.cookieCount.length}</span>
 
-                    {(user !== null) && (user.result.googleId === props.post.creator || user.result._id === props.post.creator)(
+                    {(user !== null) && (user.result.googleId === props.post.creator || user.result._id === props.post.creator) && (
                         <div className="delete-button">
                             <Button variant="danger" size="sm" onClick={() => dispatch(deletePost(props.post._id))}>Delete</Button>
                         </div>
