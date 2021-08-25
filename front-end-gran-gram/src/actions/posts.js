@@ -38,3 +38,13 @@ export const likePost = (id) => async (dispatch) => {
         console.log(error)
     }
 }
+
+export const searchPosts = (tag) => async (dispatch) => {
+    try {
+        const { data } = await api.searchPosts(tag)
+        console.log(data)
+        dispatch({ type: FETCH_ALL, payload: data })
+    } catch (error) {
+        console.log(error)
+    }
+}

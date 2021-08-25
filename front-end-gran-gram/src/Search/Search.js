@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { search } from '../actions/search'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { searchPosts } from '../actions/posts'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 
 
 const Search = () => {
+    const history = useHistory()
 
     const [searchData, setSearchData] = useState("")
 
@@ -12,11 +14,11 @@ const Search = () => {
 
     const handleSearch = (e) => {
         e.preventDefault()
-        console.log(searchData)
-        dispatch(search(searchData))
+
+        dispatch(searchPosts(searchData))
     }
 
-
+    const posts = useSelector((state) => state.posts)
     return (
         <Container>
             <Row>

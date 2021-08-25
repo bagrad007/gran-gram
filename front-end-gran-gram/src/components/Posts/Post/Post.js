@@ -2,15 +2,12 @@ import React from 'react'
 import { likePost, deletePost } from '../../../actions/posts'
 import { useDispatch } from 'react-redux'
 
-import "../../../stylesheets/cardbox.css"
 import Smile from "../../../images/yellow-smile.JPG"
 
-import Image from 'react-bootstrap/Image'
-import Button from 'react-bootstrap/Button'
+import "../../../stylesheets/cardbox.css"
+import { Image, Button, Container, Row, Col } from 'react-bootstrap'
+
 // import Dropdown from 'react-bootstrap/Dropdown'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 
 
 const Post = (props) => {

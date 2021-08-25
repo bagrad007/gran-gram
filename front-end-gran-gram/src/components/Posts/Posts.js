@@ -14,8 +14,10 @@ import Card from 'react-bootstrap/Card'
 
 const Posts = (props) => {
     const posts = useSelector((state) => state.posts)
+    console.log(posts)
 
-    if (!posts.length) {
+
+    if (posts === null) {
         return (
 
             <Container className='center-element'>
@@ -28,6 +30,20 @@ const Posts = (props) => {
                     </Col>
                 </Row>
             </Container>
+        )
+    } else if (posts.length === 0) {
+        return (
+            <div>
+                <br />
+                <Search className='center-element' />
+                <Container className='center-element'>
+                    <Row>
+                        <Col>
+                            <h2>Sorry dear, no posts to be found ;)</h2>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         )
     } else {
         return (

@@ -11,6 +11,17 @@ export const getPosts = async (req, res) => {
     }
 }
 
+export const searchPosts = async (req, res) => {
+
+    const { tag } = req.params
+    try {
+        const searchTag = await PostMessage.find({ tags: { $elemMatch: { $eq: `${tag}` } } })
+        res.status(200).json(searchTag)
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+
 export const createPost = async (req, res) => {
     const post = req.body;
 
