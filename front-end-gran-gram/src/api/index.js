@@ -15,7 +15,7 @@ export const createPost = (newPost) => API.post('/posts', newPost)
 export const likePost = (id) => API.patch(`/posts/${id}/likePost`)
 export const deletePost = (id) => API.delete(`/posts/${id}`)
 
-export const search = (query) => API.get('/search/results')
+export const search = (query) => API.get('/search/results', query)
 
 export const login = (formData) => API.post('/users/login', formData)
 export const signup = (formData) => API.post('/users/signup', formData)

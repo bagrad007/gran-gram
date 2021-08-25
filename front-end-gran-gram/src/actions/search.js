@@ -5,9 +5,11 @@ import * as api from '../api'
 
 export const search = (query) => async (dispatch) => {
     try {
+
         const { data } = await api.search(query)
+        debugger
         dispatch({ type: SEARCH, payload: data })
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
     }
 }

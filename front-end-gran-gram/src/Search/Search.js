@@ -1,34 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { search } from '../actions/search'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
-import FloatingLabel from 'react-bootstrap-floating-label'
+
 
 const Search = () => {
 
+    const [searchData, setSearchData] = useState("")
+
     const dispatch = useDispatch()
 
-    const [searchData, setSearchData] = useState({
-        query: ""
-    })
-
     const handleSearch = (e) => {
-        console.log(e.target.value)
         e.preventDefault()
-        dispatch(search(e.target.value))
-        console.log("Submitted search")
+        console.log(searchData)
+        dispatch(search(searchData))
     }
 
 
     return (
         <Container>
             <Row>
-                <Col md>
+                <Col >
                     <Form onSubmit={handleSearch}>
-                        <Form.Group>
-                            <FloatingLabel label="Search by a Single Tag" />
 
-                        </Form.Group>
-                        <Button variant="success">Go</Button>
+
+                        <Form.Control placeholder="Search by a Single Tag" onChange={(e) => setSearchData(e.target.value)} />
+
+                        <Button type="submit" variant="success">Go</Button>
                     </Form>
                 </Col>
 

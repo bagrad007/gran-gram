@@ -25,6 +25,7 @@ const NewPost = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        debugger
         dispatch(createPost({ ...postData, name: user.result.name }))
         history.push('/')
     }

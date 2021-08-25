@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import decode from 'jwt-decode'
 
 import BrandLogo from '../../images/GranGram.png'
 
@@ -15,6 +16,19 @@ const Navigation = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
     useEffect(() => {
+        if (user === null) {
+            return
+        }
+
+        const token = user.token
+
+        if (token) {
+            const decodedToken = decode(token)
+            if (decodedToken.exp * 1000 < new Date().getTime()) {
+                handleLogout()
+            }
+        }
+
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [location])
 
