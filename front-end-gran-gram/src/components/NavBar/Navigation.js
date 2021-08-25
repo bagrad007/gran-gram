@@ -16,7 +16,7 @@ const Navigation = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
     useEffect(() => {
-        if (user === null) {
+        if (user === null && JSON.parse(localStorage.getItem('profile'))) {
             return
         }
 

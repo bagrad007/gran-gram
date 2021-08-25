@@ -11,6 +11,13 @@ import FileBase from 'react-file-base64'
 const NewPost = () => {
 
 
+    const handleTagInput = (tags) => {
+        let newTags = tags.replace('#', "")
+        newTags.toLowerCase().split(',')
+
+        return newTags
+    }
+
     const history = useHistory()
     const dispatch = useDispatch()
     const user = JSON.parse(localStorage.getItem('profile'))
@@ -25,7 +32,6 @@ const NewPost = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        debugger
         dispatch(createPost({ ...postData, name: user.result.name }))
         history.push('/')
     }
@@ -41,7 +47,7 @@ const NewPost = () => {
         <Container className="form-container" fluid>
 
             <Row className="center-element">
-                <Form onSubmit={handleSubmit} autoComplete="off" className="createPostForm">
+                <Form onSubmit={handleSubmit} autoComplete="off" className="createPostForm needs-validation" novalidate>
                     <Col>
                         <div className={"mb-3"}>
                             <FileBase
@@ -60,7 +66,7 @@ const NewPost = () => {
                         </Form.Group>
                     </Col>
                     <Col>
-                        <Form.Group className="mb-3" value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(",") })}>
+                        <Form.Group className="mb-3" value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: handleTagInput(e.target.value) })}>
                             <Form.Label>Tags</Form.Label>
                             <Form.Control type="text" placeholder="Tags" />
                         </Form.Group>

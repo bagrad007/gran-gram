@@ -41,9 +41,13 @@ export const likePost = (id) => async (dispatch) => {
 
 export const searchPosts = (tag) => async (dispatch) => {
     try {
-        const { data } = await api.searchPosts(tag)
-        console.log(data)
-        dispatch({ type: FETCH_ALL, payload: data })
+        if (tag === "") {
+            const { data } = await api.fetchPosts()
+            dispatch({ type: FETCH_ALL, payload: data })
+        } else {
+            const { data } = await api.searchPosts(tag)
+            dispatch({ type: FETCH_ALL, payload: data })
+        }
     } catch (error) {
         console.log(error)
     }
