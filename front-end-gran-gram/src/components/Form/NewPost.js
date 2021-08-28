@@ -3,20 +3,13 @@ import { useDispatch } from 'react-redux'
 import { createPost } from '../../actions/posts.js'
 import { useHistory } from 'react-router'
 
-
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap'
 
 import FileBase from 'react-file-base64'
 
 const NewPost = () => {
 
-
-    const handleTagInput = (tags) => {
-        let newTags = tags.replace('#', "")
-        newTags.toLowerCase().split(',')
-
-        return newTags
-    }
+    const [validated, setValidated] = useState(false);
 
     const history = useHistory()
     const dispatch = useDispatch()
@@ -30,10 +23,25 @@ const NewPost = () => {
     })
 
 
+    const handleTagInput = (tags) => {
+        let newTags = tags.replace('#', "")
+        newTags.toLowerCase().split(',')
+        console.log(newTags)
+        return newTags
+    }
+
     const handleSubmit = (e) => {
-        e.preventDefault()
-        dispatch(createPost({ ...postData, name: user.result.name }))
-        history.push('/')
+        const form = e.currentTarget
+        if (form.checkValidity() === false) {
+            e.preventDefault();
+            e.stopPropagation();
+        } else {
+
+            e.preventDefault()
+            dispatch(createPost({ ...postData, name: user.result.name }))
+            history.push('/')
+        }
+        setValidated(true);
     }
 
     if (user === null && !user.result.name) {
@@ -47,24 +55,33 @@ const NewPost = () => {
         <Container className="form-container" fluid>
 
             <Row className="center-element">
-                <Form onSubmit={handleSubmit} autoComplete="off" className="createPostForm needs-validation" novalidate>
+                <Form onSubmit={handleSubmit} validated={validated} autoComplete="off" className="createPostForm needs-validation" noValidate>
+                    {/* File selection */}
                     <Col>
                         <div className={"mb-3"}>
-                            <FileBase
-                                type="file"
-                                multiple={false}
-                                onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
-                            />
+                            <Form.Group required>
+
+                                <FileBase
+                                    type="file"
+                                    multiple={false}
+                                    onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
+                                />
+                                <Form.Control.Feedback type="invalid">Please select a photo</Form.Control.Feedback>
+                            </Form.Group>
                         </div>
                     </Col>
+                    {/* Text field */}
                     <Col>
                         <Form.Group className="mb-2" controlId="formTextField" value={postData.text} onChange={(e) => setPostData({ ...postData, text: e.target.value })}>
                             <Form.Label>Text</Form.Label>
                             <Form.Control
+                                required
                                 as="textarea"
                                 placeholder="Text for Post" />
+                            <Form.Control.Feedback type="invalid">Please enter text</Form.Control.Feedback>
                         </Form.Group>
                     </Col>
+                    {/* Tag selection */}
                     <Col>
                         <Form.Group className="mb-3" value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: handleTagInput(e.target.value) })}>
                             <Form.Label>Tags</Form.Label>

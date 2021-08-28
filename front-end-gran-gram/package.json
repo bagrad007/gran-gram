@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
+    "@ambroseus/dck-store": "^1.8.6",
     "@babel/plugin-proposal-optional-chaining": "^7.14.5",
     "@babel/preset-env": "^7.15.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -22,6 +23,7 @@
     "react-google-login": "^5.2.2",
     "react-infinite-scroll-component": "^6.1.0",
     "react-infinite-scroll-hook": "^4.0.1",
+    "react-intersection-observer-hook": "^2.0.3",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^1.1.5",

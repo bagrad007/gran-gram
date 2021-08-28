@@ -16,11 +16,14 @@ const Navigation = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
     useEffect(() => {
-        if (user === null && JSON.parse(localStorage.getItem('profile'))) {
+        if (user === null && setUser(JSON.parse(localStorage.getItem('profile')))) {
             return
         }
+        let token
 
-        const token = user.token
+        if (user !== null) {
+            token = user.token
+        }
 
         if (token) {
             const decodedToken = decode(token)

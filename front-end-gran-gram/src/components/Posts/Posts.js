@@ -1,18 +1,17 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import "../../stylesheets/cardbox.css"
 import Post from './Post/Post.js'
-import image from '../../images/elderly-lady-on-computer.jpeg'
 import Search from '../../Search/Search.js'
 
+import image from '../../images/elderly-lady-on-computer.jpeg'
 
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Spinner from 'react-bootstrap/Spinner'
-import Card from 'react-bootstrap/Card'
 
-const Posts = (props) => {
+import "../../stylesheets/cardbox.css"
+import { Container, Row, Col, Spinner, Card } from 'react-bootstrap'
+
+
+
+const Posts = () => {
     const posts = useSelector((state) => state.posts)
     console.log(posts)
 
@@ -39,7 +38,7 @@ const Posts = (props) => {
                 <Container className='center-element'>
                     <Row>
                         <Col>
-                            <h2>Sorry dear, no posts to be found ;)</h2>
+                            <h2>Sorry dear, no posts to be found</h2>
                         </Col>
                     </Row>
                 </Container>
