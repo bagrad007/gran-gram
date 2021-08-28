@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Post from './Post/Post.js'
-import Search from '../../Search/Search.js'
+import Search from '../Search/Search'
 
 import image from '../../images/elderly-lady-on-computer.jpeg'
 

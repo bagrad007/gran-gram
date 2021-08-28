@@ -1,4 +1,4 @@
-import { AUTH, FETCH_ALL } from '../constants/actionType'
+import { AUTH } from '../constants/actionType'
 import * as api from '../api'
 
 export const login = (formData, history) => async (dispatch) => {
@@ -6,7 +6,6 @@ export const login = (formData, history) => async (dispatch) => {
         const { data } = await api.login(formData)
 
         dispatch({ type: AUTH, data })
-
 
         history.push('/')
     } catch (error) {
