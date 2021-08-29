@@ -12,19 +12,26 @@ import { Image, Button, Container, Row, Col } from 'react-bootstrap'
 
 const Post = (props) => {
 
-
+    let [cookieIcon, setCookieIcon] = ''
     const user = JSON.parse(localStorage.getItem('profile'));
-    const [cookieIcon, setCookieIcon] = useState('fas fa-cookie')
+
     const dispatch = useDispatch()
 
+    if (props.post.cookieCount.includes(user.result._id)) {
+        [cookieIcon, setCookieIcon] = useState('fas fa-cookie-bite')
+    } else {
+        [cookieIcon, setCookieIcon] = useState('fas fa-cookie')
+    }
 
     const handleCookie = () => {
+
         if (props.post.cookieCount.includes(user.result._id)) {
             setCookieIcon('fas fa-cookie')
         } else {
             setCookieIcon('fas fa-cookie-bite')
         }
     }
+
 
 
     return (
