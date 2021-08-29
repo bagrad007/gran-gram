@@ -26,7 +26,6 @@ const NewPost = () => {
     const handleTagInput = (tags) => {
         let newTags = tags.replace('#', "")
         newTags.toLowerCase().split(',')
-        console.log(newTags)
         return newTags
     }
 

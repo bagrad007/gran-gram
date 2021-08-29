@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { likePost, deletePost } from '../../../actions/posts'
 import { useDispatch } from 'react-redux'
 
@@ -11,9 +11,21 @@ import { Image, Button, Container, Row, Col } from 'react-bootstrap'
 
 
 const Post = (props) => {
-    const dispatch = useDispatch()
+
 
     const user = JSON.parse(localStorage.getItem('profile'));
+    const [cookieIcon, setCookieIcon] = useState('fas fa-cookie')
+    const dispatch = useDispatch()
+
+
+    const handleCookie = () => {
+        if (props.post.cookieCount.includes(user.result._id)) {
+            setCookieIcon('fas fa-cookie')
+        } else {
+            setCookieIcon('fas fa-cookie-bite')
+        }
+    }
+
 
     return (
 
@@ -43,12 +55,15 @@ const Post = (props) => {
                     <div >
                         {props.post.text}
                     </div>
-                    <Button variant="light" disabled={user === null || !user.result} onClick={() => dispatch(likePost(props.post._id))}><i className="fas fa-cookie-bite"></i></Button>
+                    <Button variant="light" disabled={user === null || !user.result} onClick={() => {
+                        handleCookie()
+                        dispatch(likePost(props.post._id))
+                    }}><i className={cookieIcon}></i></Button>
                     <span>  {props.post.cookieCount.length}</span>
 
                     {(user !== null) && (user.result.googleId === props.post.creator || user.result._id === props.post.creator) && (
                         <div className="delete-button">
-                            <Button variant="danger" size="sm" onClick={() => dispatch(deletePost(props.post._id))}>Delete</Button>
+                            <Button variant="danger" size="md" onClick={() => dispatch(deletePost(props.post._id))}>Delete</Button>
                         </div>
                     )}
 

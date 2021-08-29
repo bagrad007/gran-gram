@@ -41,8 +41,10 @@ const Auth = () => {
     }
 
     const googleSuccess = async (res) => {
+
         const result = res.profileObj;
         const token = res.tokenId;
+        result._id = result.googleId
 
         try {
             dispatch({ type: "AUTH", data: { result, token } })
